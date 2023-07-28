@@ -1,20 +1,22 @@
 {
-  "users": [
-    {
-      "id": 1,
-      "username": "Manolo",
-      "state": true
-    },
-    {
-      "id": 2,
-      "username": "Juan",
-      "state": true
-    },
-    {
-      "id": 3,
-      "username": "London",
-      "state": true
-    }
-  ],
+  "users" : {
+    "users": [
+      {
+        "id": 1,
+        "username": "Manolo",
+        "state": true
+      },
+      {
+        "id": 2,
+        "username": "Juan",
+        "state": true
+      },
+      {
+        "id": 3,
+        "username": "London",
+        "state": true
+      }
+    ]
+  },
   "worlds": [1,2,3,4,5,6,7]
 }
