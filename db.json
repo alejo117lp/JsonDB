@@ -1,0 +1,19 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "Manolo",
+      "state": true
+    },
+    {
+      "id": 2,
+      "username": "Juan",
+      "state": true
+    },
+    {
+      "id": 3,
+      "username": "London",
+      "state": true
+    }
+  ]
+}
