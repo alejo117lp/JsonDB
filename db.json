@@ -3,18 +3,21 @@
     "users": [
       {
         "id": 1,
-        "username": "Manolo",
-        "state": true
+        "username": "Ricardo",
+        "state": true,
+        "deck" : [1,2,3,4,5]
       },
       {
         "id": 2,
-        "username": "Juan",
-        "state": true
+        "username": "Lorenzo",
+        "state": true,
+        "deck" : [1,2,3,4,5]
       },
       {
         "id": 3,
-        "username": "London",
-        "state": true
+        "username": "Damian",
+        "state": true,
+        "deck" : [1,2,3,4,5]
       }
     ]
   },
