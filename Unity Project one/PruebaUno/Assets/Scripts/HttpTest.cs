@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class HttpTest : MonoBehaviour
 {
-    public int userId = 2;
+    public int userId = 1;
     public string url = "https://my-json-server.typicode.com/alejo117lp/JsonDB";
     public string apiRickAndMorty = "https://rickandmortyapi.com/api/character";
     //public  RawImage yourRawImage;
@@ -20,9 +20,15 @@ public class HttpTest : MonoBehaviour
     
 
     public void SendRequest() {
+        ChangeUserId(); 
         StartCoroutine(GetUser());
     }
 
+    public void ChangeUserId() {
+
+        userId++;
+        if(userId < 1 || userId > 3) userId = 1;
+    }
 
     IEnumerator GetUser() {
 
