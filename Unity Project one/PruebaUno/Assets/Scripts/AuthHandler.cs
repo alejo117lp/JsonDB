@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 
 public class AuthHandler : MonoBehaviour
 {
-    public string ApiUrl = "https://sid-restapi.onrender.com/api";
+    public string ApiUrl = "https://sid-restapi.onrender.com/api/";
     TMP_InputField userNameInputfield;
     TMP_InputField passwordInputfield;
     private string token;
@@ -70,7 +70,7 @@ public class AuthHandler : MonoBehaviour
 
     IEnumerator SendRegister(string json) {
 
-        UnityWebRequest request = UnityWebRequest.Put(ApiUrl + "/usuarios", json);
+        UnityWebRequest request = UnityWebRequest.Put(ApiUrl + "usuarios", json);
         request.SetRequestHeader("Content-Type", "application/json"); //nombre del header, valor
         request.method = "POST";
         yield return request.SendWebRequest();
@@ -110,6 +110,7 @@ public class AuthHandler : MonoBehaviour
                 Debug.Log("Inició Sesión el usuario: " + data.usuario.username);
                 PlayerPrefs.SetString("token", data.token);
                 PlayerPrefs.SetString("username", data.usuario.username);
+                SceneManager.LoadScene("Level 1");
                 Debug.Log(data.token);
             }
             else {
