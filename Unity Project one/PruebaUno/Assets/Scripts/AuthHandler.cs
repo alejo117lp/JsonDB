@@ -60,6 +60,7 @@ public class AuthHandler : MonoBehaviour
             if(request.responseCode == 200) {
                 AuthData data = JsonUtility.FromJson<AuthData>(request.downloadHandler.text);
                 Debug.Log("Sesión Activa de: " + data.usuario.username);
+                Debug.Log("Su scores es: " + data.usuario.data.score);
                 SceneManager.LoadScene("Level 1");
             }
             else {
@@ -124,13 +125,21 @@ public class AuthHandler : MonoBehaviour
 public class AuthData {
     public string username;
     public string password;
-    public UserData usuario;
+    public UserD usuario;
+    public UserD[] usuarios;
     public string token;
 }
 
 [System.Serializable]
-public class UserData {
+public class UserD {
     public string _id;
     public string username;
     public bool estado;
+    public DataUser data;
+}
+
+[System.Serializable]
+public class DataUser {
+    public int score;
+    public UserD[] friends;
 }
