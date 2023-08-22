@@ -54,7 +54,7 @@ public class AuthHandler : MonoBehaviour
         user.data = new DataUser();
         user.username = currentUser.usuario.username;
         user.data.score = currentUser.usuario.data.score;
-        Debug.Log("SCORE: " + currentUser.usuario.data.score);
+        Debug.Log(currentUser.usuario.username + " SCORE: " + currentUser.usuario.data.score);
         string json = JsonUtility.ToJson(user);
         StartCoroutine(SendPATCH(json));
     }
@@ -74,6 +74,8 @@ public class AuthHandler : MonoBehaviour
                 currentUser = data;
                 currentUser.usuario.username = username;
                 currentUser.token = token;
+                PlayerPrefs.SetString("user_name", currentUser.usuario.username);
+                
                 Debug.Log("Sesión Activa de: " + data.usuario.username);
                 Debug.Log("Su scores es: " + data.usuario.data.score);
                 //SceneManager.LoadScene("Level 1");
@@ -124,9 +126,7 @@ public class AuthHandler : MonoBehaviour
 
                 AuthData data = JsonUtility.FromJson<AuthData>(request.downloadHandler.text);
                 Debug.Log("Inició Sesión el usuario: " + data.usuario.username);
-                PlayerPrefs.SetString("token", data.token);
-                PlayerPrefs.SetString("username", data.usuario.username);
-               // SceneManager.LoadScene("Level 1");
+                //SceneManager.LoadScene("Level 1");
                 Debug.Log(data.token);
             }
             else {
