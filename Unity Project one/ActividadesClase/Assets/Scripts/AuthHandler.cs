@@ -6,6 +6,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms;
 using UnityEngine.SocialPlatforms.Impl;
 
 public class AuthHandler : MonoBehaviour
@@ -21,13 +22,13 @@ public class AuthHandler : MonoBehaviour
     UserD[] usuarios;
     private string token;
     private string username;
-    public bool restoreData = true;
+    //public bool restoreData = true;
     void Start()
     {
-        if(restoreData) {
+        /*if(restoreData) {
             PlayerPrefs.SetString("username", "");
             PlayerPrefs.SetString("token", "");
-        }
+        }*/
         token = PlayerPrefs.GetString("token");
         if (string.IsNullOrEmpty(token)) {
             Debug.Log("No hay token almacenado");
@@ -36,6 +37,8 @@ public class AuthHandler : MonoBehaviour
             username = PlayerPrefs.GetString("username");
             StartCoroutine(GetPerfil(username));
             StartCoroutine(GetUserList());
+            currentUsernameUI.text = currentUser.usuario.username;
+            currentScoreUI.text = (currentUser.usuario.data.score).ToString();
         }
 
         userNameInputfield = GameObject.Find("InputFieldUsername").GetComponent<TMP_InputField>();
@@ -49,6 +52,12 @@ public class AuthHandler : MonoBehaviour
 
         string json = JsonUtility.ToJson(authData);
         StartCoroutine(SendRegister(json));
+    }
+
+   public void Logout() {
+        leaderboard.SetActive(false);
+        PlayerPrefs.SetString("username", "");
+        PlayerPrefs.SetString("token", "");
     }
 
     public void Login() {
@@ -125,6 +134,8 @@ public class AuthHandler : MonoBehaviour
                 leaderboard.SetActive(true);
                 Debug.Log("Sesión Activa de: " + data.usuario.username);
                 Debug.Log("Su scores es: " + data.usuario.data.score);
+                currentUsernameUI.text = currentUser.usuario.username;
+                currentScoreUI.text = (currentUser.usuario.data.score).ToString();
                 StartCoroutine(GetUserList());
                 //SceneManager.LoadScene("Level 1");
             }
