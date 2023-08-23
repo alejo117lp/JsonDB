@@ -2884,9 +2884,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1446039400}
-        m_TargetAssemblyTypeName: LocalButtonsController, Assembly-CSharp
-        m_MethodName: BackToHome
+      - m_Target: {fileID: 117428305900998505}
+        m_TargetAssemblyTypeName: AuthHandler, Assembly-CSharp
+        m_MethodName: Logout
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4293,7 +4293,6 @@ MonoBehaviour:
   - {fileID: 341460216}
   - {fileID: 78701285}
   ApiUrl: https://sid-restapi.onrender.com/api/
-  restoreData: 1
 --- !u!1 &509626556905035628
 GameObject:
   m_ObjectHideFlags: 0
