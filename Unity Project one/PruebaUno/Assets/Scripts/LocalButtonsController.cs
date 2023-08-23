@@ -7,12 +7,8 @@ using UnityEngine.SceneManagement;
 
 public class LocalButtonsController : MonoBehaviour
 {
-    [SerializeField] AuthHandler authHandler;
+    [SerializeField] GameObject learderboard;
     public void BackToHome() {
-        SceneManager.LoadScene("Home");
-    }
-
-    public void ChangeScore() {
-        authHandler.AssignScore();
+        learderboard.SetActive(false);
     }
 }
